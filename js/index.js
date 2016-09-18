@@ -5,16 +5,15 @@
 
 	Flickr.prototype = {
 		init: function() {
-			this.user = "123194585@N06";
-			this.album = "72157646849974903";
-
+			this.user = "144623533@N08";
+			this.album = "72157674025315935";
 
 			window.getPhotos = this.getPhotos;
 
 			this.getJSON();
 		},
 		getJSON: function() {
-			var src = "http://api.flickr.com/services/feeds/photoset.gne?nsid=" + this.user + "&set=" + this.album + "&format=json&jsoncallback=getPhotos";
+			var src = "http://api.flickr.com/services/feeds/photos_public.gne?id=" + this.user + "&format=json&jsoncallback=getPhotos";
 			var script = document.createElement( "script" );
 				script.src = src;
 				document.body.appendChild( script );
@@ -44,7 +43,7 @@
 	};
 
 	document.addEventListener( "DOMContentLoaded", function() {
-		var flickrFeed = new Flickr();
+//		var flickrFeed = new Flickr();
 
 	});
 
