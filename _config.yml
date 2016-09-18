@@ -1,0 +1,20 @@
+# Site settings
+title: Xander
+email: tod.xander@gmail.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://todd-xander.github.io" # the base hostname & protocol for your site
+
+# Sidebar settings
+description: Todd Xander's Blog
+
+# Social icons
+#facebook: username
+linkedin: todd xander
+github: todd-xander
+#deviantart: username
+#codepen: username
+
+footer: © Taken theme
+
+# Build settings
+markdown: kramdown
