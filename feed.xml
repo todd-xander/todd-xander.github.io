@@ -1,0 +1,27 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <link href="http://{{ site.baseurl }}/"/>
+    <link href="http://{{ site.baseurl }}/feed" rel="self" />
+    <id>{{ site.baseurl }}</id>
+    {% if posts %}
+    <updated>{{ posts[0]['date'] | data : "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    {% endif %}
+
+    {% for post in site.posts %}
+      {% unless post.draft %}
+        <item>
+          <title>{{ post.title | xml_escape }}</title>
+          <description>{{ post.content | xml_escape }}</description>
+          <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+          <link>{{ post.url | prepend: site.url }}</link>
+          <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
+        </item>
+      {% endunless %}
+    {% endfor %}
+  </channel>
+</rss>

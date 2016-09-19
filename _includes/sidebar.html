@@ -1,10 +1,8 @@
-<div class='wrapper'>
+<div class='wrapper' id='main-content'>
 
-  <div class='content'>
-    {{ content }}
-  </div>
+  <div class='sidebar' id='menu'>
 
-  <div class='sidebar menu'>
+      <button class="menu-handle"><span>Menu</span></button>
 
       <div id="picture" style="background-image: url({{ site.baseurl }}/images/avatar.jpeg)"></div>
       <p>{{site.description}}</p>
@@ -48,6 +46,10 @@
      <p>{{site.footer}}<p>
      <p>Powered by Jekyll<p>
 
+  </div>
+
+  <div class='content'>
+    {{ content }}
   </div>
 
 </div>

@@ -47,4 +47,29 @@
 
 	});
 
+    function SVGMenu( el, options ) {
+        this.el = el;
+        this.init();
+    }
+    SVGMenu.prototype.init = function() {
+        this.trigger = this.el.querySelector( 'button.menu-handle' );
+        this.initEvents();
+    };
+    SVGMenu.prototype.initEvents = function() {
+        this.trigger.addEventListener( 'click', this.toggle.bind(this) );
+    };
+    SVGMenu.prototype.toggle = function() {
+        var self = this;
+        if( $(self.el).hasClass( 'menu-open' ) ) {
+            setTimeout( function() { $(self.el).removeClass( 'menu-open' );}, 10 );
+        }
+        else {
+            setTimeout( function() { $(self.el).addClass( 'menu-open' );
+                $(".menu.menu-open").siblings("#main").on("click",function(){$(self.el).removeClass( 'menu-open' );});
+            }, 10 );
+        }
+    };
+    new SVGMenu( document.getElementById( 'main-content' ) );
+
+
 })();
