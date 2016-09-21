@@ -71,5 +71,4 @@
     };
     new SVGMenu( document.getElementById( 'main-content' ) );
 
-
 })();

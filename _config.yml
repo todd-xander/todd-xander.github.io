@@ -8,13 +8,13 @@ url: "https://todd-xander.github.io" # the base hostname & protocol for your sit
 description: Todd Xander's Blog
 
 # Social icons
-#facebook: username
+google: "107899685947493255112"
 linkedin: todd-xander-40267154
 github: todd-xander
-#deviantart: username
-#codepen: username
+email: tod.xander@gmail.com
 
 footer: © Taken theme
 
 # Build settings
 markdown: kramdown
+
