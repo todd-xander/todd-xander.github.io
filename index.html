@@ -4,7 +4,7 @@ layout: default
 
 <div class="post-container">
 
-  {% for post in site.posts %}
+  {% for post in paginate.posts %}
     <div class ="post-preview">
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
         <h2>{{ post.title }}</h2>
@@ -25,3 +25,18 @@ layout: default
     {% endfor %}
 
 </div>
+
+{% if paginator.total_pages > 1 %}
+    <nav class="pagination fn-clear">
+        <span class="pagination-icon"><i class=" icon-copy"></i></span>
+        <ul class="pagination-list">
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <li class="current"><a href="javascript:void(0);">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

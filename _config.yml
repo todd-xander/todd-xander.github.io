@@ -18,3 +18,5 @@ footer: © Taken theme
 # Build settings
 markdown: kramdown
 
+paginate: 4
+paginate_path: /page:num
