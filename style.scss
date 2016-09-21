@@ -295,6 +295,38 @@ th.title {
   }
 }
 
+.content .pagination {
+    line-height: 32px;
+    padding-top: 20px;
+
+}
+.content .pagination li {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.content .pagination-list {
+    width: 550px;
+    height: 32px;
+    line-height: 32px;
+    float: left;
+    list-style: none;
+    padding-left: 10px;
+}
+.content .pagination-list li a {
+    line-height: 32px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background: #f2eeec;
+    text-align: center;
+    text-decoration: none;
+}
+.content .pagination-list .current a {
+    background: #bbb;
+    color: #fefefe;
+}
+
 @media screen and (max-width: 1200px) {
 .sidebar {
   margin-left: -180px;
