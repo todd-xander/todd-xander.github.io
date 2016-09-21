@@ -4,7 +4,7 @@
 
       <button class="menu-handle"><span>Menu</span></button>
 
-      <a href="{{ site.baseurl }}"><div id="picture" style="background-image: url({{ site.baseurl }}/images/avatar.jpeg)"></div></a>
+      <a href="{{ site.url }}"><div id="picture" style="background-image: url({{ site.url }}/images/avatar.jpeg)"></div></a>
       <p>{{site.description}}</p>
 
       <hr>
@@ -15,7 +15,7 @@
             <li><a href="https://mx.linkedin.com/in/{{ site.linkedin }}" target=_blank><i class="fa fa-linkedin-square"></i></a></li>
             <li><a href="https://github.com/{{ site.github }}" target=_blank><i class="fa fa-github-square"></i></a></li>
             <li><a href="mailto://{{ site.email }}" target=_blank><i class="fa fa-envelope-square"></i></a></li>
-            <li><a href="{{ site.baseurl }}/feed.xml" target=_blank><i class="fa fa-rss-square"></i></a></li>
+            <li><a href="{{ site.url }}/feed.xml" target=_blank><i class="fa fa-rss-square"></i></a></li>
         </ul>
       </div>
 
@@ -23,8 +23,8 @@
 
        <div class="navigation">
         <ul>
-                <li><a href="{{ site.baseurl }}/archive">Archive</a></li>
-                <li><a href="{{ site.baseurl }}/about">About</a></li>
+                <li><a href="{{ site.url }}/archive">Archive</a></li>
+                <li><a href="{{ site.url }}/about">About</a></li>
         </ul>
     </div>
 
@@ -33,7 +33,7 @@
      <div class="navigation">
              <ul>
                {% for category in site.categories %}
-                 <li><a href="{{ site.baseurl | prepend: url }}/categories/{{ category | first | prepend: site.baseurl }}">{{ category | first }}</a></li>
+                 <li><a href="{{ site.url | prepend: url }}/categories/{{ category | first | prepend: site.url }}">{{ category | first }}</a></li>
                {% endfor %}
              </ul>
      </div>
