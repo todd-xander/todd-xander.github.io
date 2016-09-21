@@ -33,7 +33,7 @@
      <div class="navigation">
              <ul>
                {% for category in site.categories %}
-                 <li><a href="{{ site.url | prepend: url }}/categories/{{ category | first | prepend: site.url }}">{{ category | first }}</a></li>
+                 <li><a href="{{ site.url }}/categories/{{ category | first }}">{{ category | first }}</a></li>
                {% endfor %}
              </ul>
      </div>
