@@ -22,7 +22,10 @@ layout: default
 
     </div>
 
-    <hr>
+    <div style="min-width:100%;text-align:center;margin-top:20px">
+        <a href="{{ post.url }}">Read more</a>
+    </div>
+    {% include post-footer.html %}
 
     {% endfor %}
 
