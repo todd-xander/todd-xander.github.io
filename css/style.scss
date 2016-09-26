@@ -42,7 +42,6 @@ th.title {
 }
 
 .wrapper {
-  display: flex;
   min-height: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -65,12 +64,12 @@ th.title {
     display: none;
     background: none;
     border: none;
-    width: 30px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     padding: 0;
     outline: none;
     position: absolute;
-    top: 16px;
+    top: 6px;
     margin-left: 160px;
     cursor: pointer;
     z-index: 2000;
@@ -100,27 +99,25 @@ th.title {
     position: absolute;
     left: 0;
     overflow: hidden;
-    text-indent: 200%;
-    border-top: solid 1px;
-    width: 30px;
-    color: #888;
-    height: 0;
+    width: 20px;
+    height: 2px;
     border-radius: 0;
     -webkit-transition: all 0.6s;
     transition: all 0.6s;
 }
 
 .menu-handle::before {
-    -webkit-transform: translate(0, -10px);
-    transform: translate(0, -10px);
+    -webkit-transform: translate(0, -7px);
+    transform: translate(0, -7px);
 }
 
 .menu-handle::after {
-    -webkit-transform: translate(0, 10px);
-    transform: translate(0, 10px);
+    -webkit-transform: translate(0, 7px);
+    transform: translate(0, 7px);
 }
 
 .menu-open .menu-handle span {
+    background-color: rgba(0,0,0,0);
     color: rgba(0,0,0,0);
     border: none;
 }
@@ -138,7 +135,6 @@ th.title {
 /* ------------ Content Style -------------- */
 
 .content {
-  flex: 1;
   padding: 20px 20px 20px 260px;
 
   font-family: Arial, sans-serif;
@@ -204,7 +200,6 @@ th.title {
 .content pre
 {
     border:none;
-    width: 70%;
 
     /* Generic font style */
     font-family: Arial,sans-serif;
@@ -330,15 +325,15 @@ th.title {
   transition-duration: 0.6s;
 }
 .menu-handle {
-  margin-left: 180px;
+  margin-left: 170px;
   display: block;
 }
 .content {
-  margin-left: 50px;
+  margin-left: 20px;
   padding: 10px;
   transition-duration: 0.6s;
 }
 .menu-open .content {
-  transform: translate(180px, 0px);
+  transform: translate(190px, 0px);
 }
 }
