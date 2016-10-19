@@ -138,6 +138,7 @@ ol.style-1 .pull-right {
   display: table;
   content: "";
   line-height: 0;
+  box-sizing: content-box;
 }
 .timeline:after {
   clear: both;
