@@ -6,6 +6,8 @@ comments: true
 categories: C++
 ---
 
+原文地址: [C++ templates: What is a variadic template function?](https://www.ibm.com/developerworks/mydeveloperworks/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/c_templates_what_is_a_variadic_template_function41?lang=en)
+
 最近的C++语言标准有些更进一步的复杂特性，诸如加上了变长模板。我在尝试理解这个特性的过程中
 的一个最大的问题是，没有足够简单的代码示例来说明到底变长模板是如何使用和起作用的。
 
