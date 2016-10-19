@@ -1,0 +1,128 @@
+---
+layout: post
+title:  "C++模板: 什么是变长模板函数?"
+date:   2016-05-19 13:41:01 +0800
+comments: true
+categories: C++
+---
+
+最近的C++语言标准有些更进一步的复杂特性，诸如加上了变长模板。我在尝试理解这个特性的过程中
+的一个最大的问题是，没有足够简单的代码示例来说明到底变长模板是如何使用和起作用的。
+
+
+以下是我的一个基本样例来说明变长模板:
+
+    template <class ...A> int func(A... arg)
+    {
+        return sizeof...(arg);
+    }
+     
+    int main(void)
+    {
+        return func(1,2,3,4,5,6);
+    }
+     
+首要介绍的是一些术语: 一个模板参数现在可以是一个模板参数包，<class...A>。一个模板参数包可以代表任意数量的
+模板参数。在以上这个样例中，模板<class...A>定义了func这个函数，他拥有任意数量的函数参数。函数参数(A... arg)即为
+一个函数参数包，他以一个参数的"形式"代表了模板template <class...A>参数包的每个成员。在这个示例中，我们使用了6个参数来调用函数func。
+模板参数推导(template argument deduction)会将参数包<class...A>推导成为
+<int,int,int,int,int,int>，接着函数参数包变成(int,int,int,int,int,int)，正好对应了6个传递过来的整形参数。
+变长操作符sizeof...简单的返回了参数包的参数个数(函数或者模板的)，结果为6.
+
+ 
+当然任何参数包多可以为空，考虑以下代码示例:
+    
+    template <class ...A> int func(A... arg)
+    {
+        return sizeof...(arg);
+    }
+ 
+    int main(void)
+    {
+        return func();
+    }
+ 
+ 在这个示例中模板参数包被推导成为空，使得函数参数包即为空，那么我们便不用传递任何参数也能进行函数调用，这里，sizeof...的返回结果为0。
+    
+ 另外，参数包中的参数也并不一定要同样的类型:
+    
+    template <class ...A> int func(A... arg)
+    {
+        return sizeof...(arg);
+    }
+ 
+    struct s1{}; struct s2{}; struct s3{};
+ 
+    int main(void)
+    {
+        s1 t1; s2 t2; s3 t3;
+    return func(t1,t2,t3);
+    }
+    
+ 在这个示例中参数包被推导为<s1,s2,s3>。
+    
+ 在之前的例子中，参数包都是类型(type parameter)参数, 当然我们也可以指定非类型参数(non-type parameter), 比如:
+    
+    template <bool ...A> int func()
+    {
+        return sizeof...(A);
+    }
+ 
+    int main(void)
+    {
+        return func<true,false,true,false>();
+    }
+    
+ 以上这个例子展示了变长模板的一些基本语法。得到参数包中元素个数很简单，但是如果一旦有元素不可被访问，那么参数包的作用
+将会非常有限。
+
+ 为了访问函数模板中的参数包，我们可以重载函数, 见以下示例:
+    
+    #include <iostream>
+    using namespace std;
+ 
+    void func()
+    {
+        cerr << "EMPTY" << endl;
+    }
+ 
+    template <class A, class ...B> void func(A argHead, B... argTail)
+    {
+        cerr << "A: " << argHead << endl;
+        func(argTail...);
+    }
+ 
+ 
+    int main(void)
+    {
+        func(1,2,3,4,5,6);
+        return 0;
+    }
+    
+在这个示例中，我们有两个函数名匹配函数调用，其一是非模板。由于非模板的那个匹配没有相应的函数参数，因此我们实际上只有一个匹配，
+所有的相应调用应该选用模板的那个匹配。为了匹配一个模板函数，编译器不得不从函数调用的实参推导模板参数，并且实例化模板函数。这个
+模板函数的第一个参数是普通的模板参数<class A>，第二个是函数参数包。第一个模板参数会被推导成第一个参数的类型。参数包中的每个成员类型
+会基于所有还未推导的元素做推导(deduction)。
+    
+我们一开始便在main函数中调用func(1,2,3,4,5,6)，模板参数<class A>被推导成int，模板参数包<class...B>被推导成<int,int,int,int,int>。
+编译器实例化了函数模板void func(int,int,int,int,int,int)。在函数体内部的实例化，argTail...是包扩展(pack expansion)。一个包扩展是由
+编译器根据上下文语境来进行扩展的。在这个示例中，argTail就是(2,3,4,5,6). 第一个参数是argHead，他现在是一个正常的函数参数。
+
+ 
+接着，我们继续函数调用的过程，现在调用是func(2,3,4,5,6)，我们开始参数推导，在参数推导完成之后，现在模板参数<class A>被推导为<int>,
+模板参数包<class...B>被推导成为<int,int,int,int>。在函数体内部argHead现在就是2，argTail就是(3,4,5,6)，新的函数调用是func(3,4,5,6)
+
+ 同理，我们继续函数调用的过程，循环往复。下一次推导之后argHead是3，argTail是(4,5,6), 新的函数调用是func(4,5,6)。再接下来，
+下一次调用的过程，参数推导之后argHead是4，argTail是(5,6)，新的函数调用是func(5,6)。再接着，argHead是5，argTail是(6)，新的函数调用
+是func(6)。继续下一步，argHead是6，argTail是()，新的函数调用是func()。到了这里，我们发现现在的函数调用匹配了非模板的那个func函数！
+ 
+因此，基于以上分析，输出结果为:
+
+    A: 1
+    A: 2
+    A: 3
+    A: 4
+    A: 5
+    A: 6
+    EMPTY
+    0  
