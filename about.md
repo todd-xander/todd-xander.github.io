@@ -5,6 +5,10 @@ permalink: /about/
 ---
 <style>
 
+ol, ul {
+    padding: 0;
+}
+
 .pull-right {
   float: right;
 }
@@ -624,15 +628,13 @@ border-left: 1px #D5D5D5 solid;
   }
 }
 </style>
-<article id="About-Me" class="entry group format-standard">
-  <h1><a href="#" title="About Me">About Me</a>
-  </h1>
+<article id="About-Me" class="entry group format-standard" style="max-witdh:800px;">
   <div class="entry-contain">
     <div class="entry-content">
 
 <div class="page-content"><p>Hi，这里是Todd Xander的个人博客，此人是技术宅，深度代码洁癖症患者，轻度摄影爱好者.</p>
   <div class="style-content-1 right">
-    <div class="small"><img alt="" src="/_image/logo.jpg" class="alignnone">
+    <div class="small"><img alt="" src="/images/logo.png" class="alignnone">
     </div>
     <div class="big">
       <ul class="style-1">
