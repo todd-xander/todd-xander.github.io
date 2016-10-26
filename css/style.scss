@@ -239,6 +239,7 @@ th.title {
 }
 
 .sidebar {
+  background-color: #f5f5f5;
   width: 280px;
   color: #eee;
   padding: 40px 65px;
@@ -326,8 +327,11 @@ th.title {
   transition-duration: 0.6s;
 }
 .menu-handle {
-  margin-left: 270px;
+  margin-left: 220px;
   display: block;
+}
+.menu-open .sidebar {
+  margin-left: 180px;
 }
 .content {
   padding: 10px;
