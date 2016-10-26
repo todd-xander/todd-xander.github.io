@@ -267,7 +267,9 @@ th.title {
      margin: 0px;
      padding: 0px;
   }
-
+  a {
+     display: inline-block;
+  }
   li {
     padding: 10px;
     list-style: none;
@@ -276,14 +278,11 @@ th.title {
     font-weight: 300;
 
 
-    a{
-
+    a {
       line-height: normal;
       font-style: normal;
       color: #8C8C8C;
       font-weight: 300;
-      display: inline-block;
-
     }
 
   }
