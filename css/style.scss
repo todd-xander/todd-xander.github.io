@@ -242,12 +242,15 @@ th.title {
   background-color: #f5f5f5;
   width: 280px;
   color: #eee;
-  padding: 40px 65px;
+  padding: 40px 15px;
   height: 100%;
   position: fixed;
   font-size:  1.1em;
+  text-align: center;
   display: block;
-
+  .navigation {
+    margin-left: 45px;
+  }
   p
   {
     font-family: Arial, sans-serif;
@@ -279,6 +282,7 @@ th.title {
       font-style: normal;
       color: #8C8C8C;
       font-weight: 300;
+      display: inline-block;
 
     }
 
@@ -327,11 +331,11 @@ th.title {
   transition-duration: 0.6s;
 }
 .menu-handle {
-  margin-left: 220px;
+  margin-left: 280px;
   display: block;
 }
 .menu-open .menu-handle {
-  margin-left: 180px;
+  margin-left: 240px;
 }
 .content {
   padding: 10px;
