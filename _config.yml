@@ -17,6 +17,7 @@ footer: © Taken theme
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 
 safe: false
 plugin: ./_plugins
