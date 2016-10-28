@@ -19,6 +19,7 @@ footer: © Taken theme
 markdown: kramdown
 highlighter: rouge
 
+
 safe: false
 plugin: ./_plugins
 gems: [jekyll-paginate]
