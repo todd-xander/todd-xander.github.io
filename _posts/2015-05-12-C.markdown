@@ -14,7 +14,7 @@ categories: C++
 
 以下是我的一个基本样例来说明变长模板:
 
-{% highlight cpp linenos %}
+```cpp
 template <class ...A> int func(A... arg)
 {
     return sizeof...(arg);
@@ -24,7 +24,7 @@ int main(void)
 {
     return func(1,2,3,4,5,6);
 }
-{% endhighlight %}
+```
 
 首要介绍的是一些术语: 一个模板参数现在可以是一个模板参数包，<class...A>。一个模板参数包可以代表任意数量的
 模板参数。在以上这个样例中，模板<class...A>定义了func这个函数，他拥有任意数量的函数参数。函数参数(A... arg)即为
@@ -36,7 +36,7 @@ int main(void)
  
 当然任何参数包多可以为空，考虑以下代码示例:
 
-{% highlight cpp linenos %}
+```cpp
 template <class ...A> int func(A... arg)
 {
     return sizeof...(arg);
@@ -46,13 +46,13 @@ int main(void)
 {
     return func();
 }
-{% endhighlight %}
+```
 
  在这个示例中模板参数包被推导成为空，使得函数参数包即为空，那么我们便不用传递任何参数也能进行函数调用，这里，sizeof...的返回结果为0。
     
  另外，参数包中的参数也并不一定要同样的类型:
 
-{% highlight cpp linenos %}
+```cpp
 template <class ...A> int func(A... arg)
 {
     return sizeof...(arg);
@@ -65,13 +65,13 @@ int main(void)
     s1 t1; s2 t2; s3 t3;
     return func(t1,t2,t3);
 }
-{% endhighlight %}
+```
     
  在这个示例中参数包被推导为<s1,s2,s3>。
     
  在之前的例子中，参数包都是类型(type parameter)参数, 当然我们也可以指定非类型参数(non-type parameter), 比如:
 
-{% highlight cpp linenos %}
+```cpp
 template <bool ...A> int func()
 {
     return sizeof...(A);
@@ -81,14 +81,14 @@ int main(void)
 {
     return func<true,false,true,false>();
 }
-{% endhighlight %}
+```
 
  以上这个例子展示了变长模板的一些基本语法。得到参数包中元素个数很简单，但是如果一旦有元素不可被访问，那么参数包的作用
 将会非常有限。
 
  为了访问函数模板中的参数包，我们可以重载函数, 见以下示例:
 
-{% highlight cpp linenos %}
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -108,7 +108,7 @@ int main(void)
     func(1,2,3,4,5,6);
     return 0;
 }
-{% endhighlight %}
+```
 
 在这个示例中，我们有两个函数名匹配函数调用，其一是非模板。由于非模板的那个匹配没有相应的函数参数，因此我们实际上只有一个匹配，
 所有的相应调用应该选用模板的那个匹配。为了匹配一个模板函数，编译器不得不从函数调用的实参推导模板参数，并且实例化模板函数。这个
