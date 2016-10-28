@@ -6,6 +6,7 @@
 
 body
 {
+    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     overflow-x: hidden;
     height: 100%;
     background-color: #f5f5f5
@@ -138,12 +139,11 @@ th.title {
 .content {
   padding: 20px 60px 20px 360px;
 
-  font-family: Arial, sans-serif;
   background-color: #fff;
-  font-size: 16px;
-  line-height: 1.5em;
-  color: #666;
-  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+  font-weight: normal;
 }
 
 .content hr {
@@ -178,20 +178,12 @@ th.title {
 
 .content p
 {
-    font-family: Arial, sans-serif;
     background-color: #fff;
-    font-size: 16px;
-    line-height: 24px;
-    color: #666666;
-    font-weight: 300;
 }
 
 .content a {
-
-    font-family: Arial, sans-serif;
     background-color: #fff;
     font-size: 16px;
-    line-height: normal;
     font-style: normal;
     color: #8C8C8C;
     font-weight: 300;
@@ -203,7 +195,6 @@ th.title {
     border:none;
 
     /* Generic font style */
-    font-family: Arial,sans-serif;
     font-size: 13px;
     font-weight: normal;
     line-height: 19.2px;
@@ -253,7 +244,6 @@ th.title {
   }
   p
   {
-    font-family: Arial, sans-serif;
     font-size: 13px;
     line-height: normal;
     font-style: normal;
