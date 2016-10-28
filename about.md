@@ -221,7 +221,7 @@ ol.style-1 .pull-right {
     position: absolute;
   }
   .timeline .pull-left strong:before {
-    border-left: 6px solid #fff;
+    border-left: 6px solid #ddd;
     right: -26px;
   }
   .timeline .pull-left.tl-info strong:before {
@@ -237,7 +237,7 @@ ol.style-1 .pull-right {
     border-left-color: #e74c3c;
   }
   .timeline .pull-right strong:before {
-    border-right: 6px solid #fff;
+    border-right: 6px solid #ddd;
     left: -26px;
   }
   .timeline .pull-right.tl-info strong:before {
@@ -258,10 +258,10 @@ ol.style-1 .pull-right {
     height: 6px;
     background: #bbb;
     position: absolute;
-    border: 2px solid #ffffff;
+    border: 2px solid #ddd;
     top: auto;
     left: 50%;
-    margin-left: -4px;
+    margin-left: -2px;
     margin-top: 1px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
