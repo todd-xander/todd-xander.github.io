@@ -629,7 +629,7 @@ border-left: 1px #D5D5D5 solid;
   }
 }
 </style>
-<article id="About-Me" class="entry group format-standard" style="max-width:800px;">
+<article id="About-Me" class="entry group format-standard" style="max-width:800px;margin:40px 60px">
   <div class="entry-contain">
     <div class="entry-content">
 
